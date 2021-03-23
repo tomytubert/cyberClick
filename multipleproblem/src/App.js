@@ -6,16 +6,28 @@ function App() {
   const cyberclickNumber = () => {
     let arr = [];
 
-    for (let i = 0; i <= 100; i++) {
-      if (i % 3 == 0 && i % 5 == 0) {
+    for (let number = 0; number <= 100; number++) {
+
+    const isMultOfThree = number % 3 === 0;
+
+    const isMultOfFive = number % 5 === 0;
+
+    const isMultOfFiveAndThree = isMultOfThree && isMultOfFive;
+
+      if (isMultOfFiveAndThree) {
         arr.push("cyberclick");
-      } else if (i % 5 == 0) {
-        arr.push("click");
-      } else if (i % 3 == 0) {
-        arr.push("cyber");
-      } else {
-        arr.push(i);
       }
+
+      if (isMultOfFive) {
+        arr.push("click");
+      }
+
+      if (isMultOfThree) {
+        arr.push("cyber");
+      }
+
+      arr.push(number);
+      continue;
     }
     setNumbersArr(arr);
   };
